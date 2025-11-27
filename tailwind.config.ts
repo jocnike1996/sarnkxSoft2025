@@ -16,6 +16,8 @@ export default {
       fontFamily: {
         display: ['Manrope', 'sans-serif'],
         body: ['Inter', 'sans-serif'],
+        sans: ["Open Sans", "sans-serif"],
+        heading: ["Raleway", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",

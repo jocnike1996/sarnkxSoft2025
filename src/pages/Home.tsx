@@ -4,7 +4,7 @@ import 'swiper/css/pagination';
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { NavLink } from "@/components/NavLink";
-import { Code2, Palette, Zap, Heart, Users, Star, ArrowRight, CheckCircle2 } from "lucide-react";
+import { Code2, Palette, Zap, Heart, Users, Star, ArrowRight, CheckCircle2, LaptopIcon, CodeIcon, RocketIcon } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -65,6 +65,56 @@ const Home = () => {
     { value: "24/7", label: "Support" },
   ];
   const images = [bg1, bg2, bg3, bg4];
+  const plans = [
+    {
+      icon: LaptopIcon, // import from heroicons or your own icons
+      title: "Basic Website",
+      description: "A simple website with 3-5 pages, responsive design, and basic SEO setup.",
+      price: "$199",
+    },
+    {
+      icon: RocketIcon,
+      title: "Business Website",
+      description: "A medium-scale website with up to 10 pages, blog integration, and contact forms.",
+      price: "$499",
+    },
+    {
+      icon: CodeIcon,
+      title: "Web Application",
+      description: "Full-featured web application with backend, database, and admin panel.",
+      price: "$999",
+    },
+    {
+      icon: RocketIcon,
+      title: "E-commerce",
+      description: "Complete e-commerce solution with product catalog, payment integration, and dashboard.",
+      price: "$1499",
+    },
+    {
+      icon: LaptopIcon, // import from heroicons or your own icons
+      title: "Basic Website",
+      description: "A simple website with 3-5 pages, responsive design, and basic SEO setup.",
+      price: "$199",
+    },
+    {
+      icon: RocketIcon,
+      title: "Business Website",
+      description: "A medium-scale website with up to 10 pages, blog integration, and contact forms.",
+      price: "$499",
+    },
+    {
+      icon: CodeIcon,
+      title: "Web Application",
+      description: "Full-featured web application with backend, database, and admin panel.",
+      price: "$999",
+    },
+    {
+      icon: RocketIcon,
+      title: "E-commerce",
+      description: "Complete e-commerce solution with product catalog, payment integration, and dashboard.",
+      price: "$1499",
+    },
+  ];
 
   return (
     <div className="min-h-screen bg-gradient-soft">
@@ -109,8 +159,8 @@ const Home = () => {
                           Experiences
                         </span>
                       </h1>
-                      <p className="text-xl text-muted-foreground leading-relaxed max-w-xl">
-                        Two passionate developers united by a love for clean code and stunning design. We build full-stack solutions that users adore.
+                      <p className="text-sx text-muted-foreground leading-relaxed max-w-xl">
+                        Passionate developers united by a love for clean code and stunning design. We build full-stack solutions that users adore.
                       </p>
                       <div className="flex flex-wrap gap-4">
                         <NavLink to="/contact">
@@ -137,6 +187,8 @@ const Home = () => {
                       </div>
                     </div>
 
+
+
                   </div>
                 </div>
               </section>
@@ -155,9 +207,9 @@ const Home = () => {
         <div className="container mx-auto">
           <div className="text-center mb-16 space-y-4">
             <h2 className="text-4xl md:text-5xl font-display font-bold">
-              Why Choose <span className="text-green-700 bg-clip-text text-transparent">DevDuo</span>
+              Why Choose <span className="text-green-700 bg-clip-text ">SernixSoft</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-sx text-muted-foreground max-w-2xl mx-auto">
               We combine technical expertise with creative passion to deliver exceptional results
             </p>
           </div>
@@ -170,44 +222,121 @@ const Home = () => {
                 <div className="w-14 h-14 gradient-primary rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-bounce">
                   <feature.icon className="w-7 h-7 text-white" />
                 </div>
-                <h3 className="text-xl font-display font-semibold mb-3">{feature.title}</h3>
+                <h3 className="text-sx font-display font-semibold mb-3">{feature.title}</h3>
                 <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
               </Card>
             ))}
           </div>
         </div>
       </section>
-
-      {/* Mission Statement */}
-      <section className="py-20 px-4 bg-muted/30">
-        <div className="container mx-auto max-w-4xl text-center space-y-8">
-          <Users className="w-16 h-16 mx-auto text-primary" />
-          <h2 className="text-3xl md:text-4xl font-display font-bold">Our Mission</h2>
-          <p className="text-xl text-muted-foreground leading-relaxed">
-            To empower businesses with beautiful, functional digital solutions built on trust, creativity, and technical excellence. We believe great software comes from passionate developers who care deeply about their craft and their clients.
-          </p>
-          <div className="flex justify-center gap-3 pt-4">
-            <div className="px-6 py-3 bg-primary/10 text-primary rounded-full text-sm font-medium">
-              Honesty First
-            </div>
-            <div className="px-6 py-3 bg-secondary/10 text-secondary rounded-full text-sm font-medium">
-              Quality Driven
-            </div>
-            <div className="px-6 py-3 bg-accent/10 text-accent rounded-full text-sm font-medium">
-              Client Focused
-            </div>
+      {/* Our Plans Section */}
+      <section className="py-20 px-4 bg-gray-50">
+        <div className="container mx-auto">
+          <div className="text-center mb-16 space-y-4">
+            <h2 className="text-4xl md:text-5xl font-display font-bold">
+              Choose the Right <span className="text-green-700 bg-clip-text">Plan</span>
+            </h2>
+            <p className="text-sx text-muted-foreground max-w-2xl mx-auto">
+              Select a plan that fits your business needs. From small websites to full-scale web applications, we've got you covered.
+            </p>
           </div>
+
+          <Swiper
+            modules={[Navigation, Pagination]}
+            spaceBetween={20}
+            slidesPerView={1}
+            navigation
+            pagination={{ clickable: true }}
+            breakpoints={{
+              640: { slidesPerView: 1 },
+              768: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 },
+              1280: { slidesPerView: 4 },
+            }}
+          >
+            {plans.map((plan, index) => (
+              <SwiperSlide key={index}>
+                <Card className="p-8 bg-card border-border hover:shadow-elevated transition-smooth hover:-translate-y-2 group">
+                  <div className="w-14 h-14 gradient-primary rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-bounce">
+                    <plan.icon className="w-7 h-7 text-white" />
+                  </div>
+                  <h3 className="text-sx font-display font-semibold mb-3">{plan.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed mb-4">{plan.description}</p>
+                  <p className="text-lg font-bold">{plan.price}</p>
+                  <button className="mt-4 px-6 py-2 bg-green-700 text-white rounded-lg hover:bg-green-800 transition">
+                    Choose Plan
+                  </button>
+                </Card>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
       </section>
+
+
+      {/* Mission Statement */}
+      <Swiper
+        modules={[Navigation, Autoplay, Pagination]}
+        spaceBetween={0}
+        slidesPerView={1}
+        pagination={{ clickable: true }}
+        // navigation
+        autoplay={{
+          delay: 300000,       // 3 seconds
+          disableOnInteraction: false,
+        }}
+        loop={true}
+      >
+        {images.map((imgUrl, idx) => (
+          <SwiperSlide key={idx} className="relative">
+            <img src={imgUrl} alt={`slide-${idx}`} className="w-full h-[529px] object-cover" />
+            {/* Gradient overlay */}
+            <div
+              className="absolute top-0 left-0 w-full h-full"
+              style={{
+                background: "linear-gradient(to right, rgba(0,2,0,2) 0%, rgba(0,0,0,0) 100%)",
+              }}
+            ></div>
+            <div className="absolute inset-0 flex flex-col items-center justify-center z-20 text-white space-y-2">
+
+
+              <section className="py-20 px-4">
+                <div className="container mx-auto max-w-4xl text-center space-y-8">
+                  <Users className="w-16 h-16 mx-auto text-primary" />
+                  <h2 className="text-3xl md:text-4xl font-display font-bold">Our Mission</h2>
+                  <p className="text-sx text-muted-foreground text-white leading-relaxed">
+                    To empower businesses with beautiful, functional digital solutions built on trust, creativity, and technical excellence. We believe great software comes from passionate developers who care deeply about their craft and their clients.
+                  </p>
+                  <div className="flex justify-center gap-3 pt-4">
+                    <div className="px-6 py-3  bg-accent/20 text-accent rounded-full text-sm font-medium">
+                      Honesty First
+                    </div>
+                    <div className="px-6 py-3  bg-accent/20 text-accent rounded-full text-sm font-medium">
+                      Quality Driven
+                    </div>
+                    <div className="px-6 py-3 bg-accent/20 text-accent rounded-full text-sm font-medium">
+                      Client Focused
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+
+            </div>
+
+
+          </SwiperSlide>
+        ))}
+      </Swiper>
 
       {/* Testimonials */}
       <section className="py-20 px-4">
         <div className="container mx-auto">
           <div className="text-center mb-16 space-y-4">
             <h2 className="text-4xl md:text-5xl font-display font-bold">
-              Loved by <span className="text-green-700 bg-clip-text text-transparent">Our Clients</span>
+              Loved by <span className="text-green-700 bg-clip-text ">Our Clients</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-sx text-muted-foreground max-w-2xl mx-auto">
               Don't just take our word for it - here's what our clients say
             </p>
           </div>
@@ -239,7 +368,7 @@ const Home = () => {
               <h2 className="text-4xl md:text-5xl font-display font-bold">
                 Ready to Build Something Amazing?
               </h2>
-              <p className="text-xl text-white/90 leading-relaxed">
+              <p className="text-sx text-white/90 leading-relaxed">
                 Let's turn your vision into a beautiful reality. Get in touch and let's create magic together.
               </p>
               <div className="flex flex-wrap justify-center gap-4 pt-4">

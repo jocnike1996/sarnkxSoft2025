@@ -21,7 +21,7 @@ const Contact = () => {
       <section className="pt-32 pb-20 px-4">
         <div className="container mx-auto text-center max-w-4xl space-y-6">
           <h1 className="text-5xl md:text-6xl font-display font-bold leading-tight">
-            Get in <span className="gradient-primary bg-clip-text text-transparent">Touch</span>
+            Get in <span className="text-green-700 bg-clip-text">Touch</span>
           </h1>
           <p className="text-xl text-muted-foreground leading-relaxed">
             Have a project in mind? Let's discuss how we can help bring your vision to life.

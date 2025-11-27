@@ -112,7 +112,7 @@ const Services = () => {
       <section className="pt-32 pb-20 px-4">
         <div className="container mx-auto text-center max-w-4xl space-y-6">
           <h1 className="text-5xl md:text-6xl font-display font-bold leading-tight">
-            Our <span className="gradient-primary bg-clip-text text-transparent">Services</span>
+            Our <span className=" bg-clip-text text-green-700">Services</span>
           </h1>
           <p className="text-xl text-muted-foreground leading-relaxed">
             Full-stack development expertise combining React/Angular frontend magic with Laravel backend power. We deliver complete digital solutions.
@@ -153,7 +153,7 @@ const Services = () => {
         <div className="container mx-auto">
           <div className="text-center mb-16 space-y-4">
             <h2 className="text-4xl md:text-5xl font-display font-bold">
-              Our <span className="gradient-warm bg-clip-text text-transparent">Process</span>
+              Our <span className="text-green-700 bg-clip-text text-green-700">Process</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               A streamlined approach to bringing your project from concept to reality
@@ -179,7 +179,7 @@ const Services = () => {
         <div className="container mx-auto">
           <div className="text-center mb-16 space-y-4">
             <h2 className="text-4xl md:text-5xl font-display font-bold">
-              Our <span className="gradient-primary bg-clip-text text-transparent">Tech Stack</span>
+              Our <span className="text-green-500 bg-clip-text ">Tech Stack</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               Modern technologies and frameworks we use to build exceptional solutions

@@ -40,7 +40,7 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50  item-center  border-border transition-colors duration-0 ${scrolled ? 'bg-black/40 backdrop-blur-md' : 'bg-black/0 backdrop-blur-sm'
+    <nav className={`fixed top-0 left-0 right-0 z-50  item-center  border-border transition-colors duration-0 ${scrolled ? 'bg-black/40 backdrop-blur-md' : 'bg-black/15 backdrop-blur-sm'
       }`}>
       {/* first div */}
 

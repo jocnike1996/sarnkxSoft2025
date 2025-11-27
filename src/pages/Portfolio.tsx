@@ -65,7 +65,7 @@ const Portfolio = () => {
       <section className="pt-32 pb-20 px-4">
         <div className="container mx-auto text-center max-w-4xl space-y-6">
           <h1 className="text-5xl md:text-6xl font-display font-bold leading-tight">
-            Our <span className="gradient-primary bg-clip-text text-transparent">Portfolio</span>
+            Our <span className="text-green-700 bg-clip-text">Portfolio</span>
           </h1>
           <p className="text-xl text-muted-foreground leading-relaxed">
             Explore our showcase of successful projects. Each one built with passion, precision, and cutting-edge technology.
@@ -84,7 +84,7 @@ const Portfolio = () => {
               { value: "5 Years", label: "Combined Experience" },
             ].map((stat, index) => (
               <Card key={index} className="p-6 text-center bg-card border-border hover:shadow-soft transition-smooth">
-                <div className="text-3xl font-display font-bold gradient-primary bg-clip-text text-transparent mb-2">
+                <div className="text-3xl font-display font-bold  bg-clip-text  mb-2">
                   {stat.value}
                 </div>
                 <div className="text-sm text-muted-foreground">{stat.label}</div>
