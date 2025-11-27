@@ -13,6 +13,8 @@ import bg1 from '@/assets/anders-jilden-cYrMQA7a3Wc-unsplash.jpg';
 import bg2 from '@/assets/garrett-parker-DlkF4-dbCOU-unsplash.jpg';
 import bg3 from '@/assets/jonatan-pie-h8nxGssjQXs-unsplash.jpg';
 import bg4 from '@/assets/luca-bravo-ii5JY_46xH0-unsplash.jpg';
+import { motion } from "framer-motion";
+
 const Home = () => {
   const features = [
     {
@@ -127,9 +129,9 @@ const Home = () => {
         spaceBetween={0}
         slidesPerView={1}
         pagination={{ clickable: true }}
-        // navigation
+
         autoplay={{
-          delay: 300000,       // 3 seconds
+          delay: 300000,
           disableOnInteraction: false,
         }}
         loop={true}
@@ -137,15 +139,30 @@ const Home = () => {
         {images.map((imgUrl, idx) => (
           <SwiperSlide key={idx} className="relative">
             <img src={imgUrl} alt={`slide-${idx}`} className="w-full h-[607px] object-cover" />
-            {/* Gradient overlay */}
+
             <div
               className="absolute top-0 left-0 w-full h-full"
               style={{
                 background: "linear-gradient(to right, rgba(0,2,0,2) 0%, rgba(0,0,0,0) 100%)",
               }}
             ></div>
-            <div className="absolute inset-0 flex flex-col items-center justify-center z-20 text-white space-y-2">
-              <section className="pt-32 pb-20 px-4">
+            <motion.div variants={{
+              hidden: { opacity: 0, y: 50 },
+              visible: {
+                opacity: 1,
+                y: 0,
+                transition: {
+                  staggerChildren: 0.3, // children animate one by one
+                  duration: 0.8,
+                },
+              },
+            }}
+              initial="hidden"
+              animate="visible"
+              className="absolute inset-0 flex flex-col items-center justify-center z-20 text-white space-y-2">
+              <motion.section className="pt-32 pb-20 px-4" transition={{ duration: 0.6, delay: 0.2 }} initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+              >
                 <div className="container mx-auto">
                   <div className="grid lg:grid-cols-2 gap-12 items-center">
                     <div className="space-y-8 animate-fade-in">
@@ -153,16 +170,22 @@ const Home = () => {
                         <Heart className="w-4 h-4 fill-primary" />
                         Built with Passion & Precision
                       </div>
-                      <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold leading-tight">
+                      <motion.h1 initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.4 }} className="text-5xl md:text-6xl lg:text-7xl font-display font-bold leading-tight">
                         Beautiful Digital
                         <span className=" bg-clip-text text-green-700 block">
                           Experiences
                         </span>
-                      </h1>
-                      <p className="text-sx text-muted-foreground leading-relaxed max-w-xl">
+                      </motion.h1>
+                      <motion.p initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.6 }} className="text-sx text-muted-foreground leading-relaxed max-w-xl">
                         Passionate developers united by a love for clean code and stunning design. We build full-stack solutions that users adore.
-                      </p>
-                      <div className="flex flex-wrap gap-4">
+                      </motion.p>
+                      <motion.div initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.8 }} className="flex flex-wrap gap-4">
                         <NavLink to="/contact">
                           <Button size="lg" variant="gradient" className="group">
                             Start Your Project
@@ -174,8 +197,10 @@ const Home = () => {
                             View Our Work
                           </Button>
                         </NavLink>
-                      </div>
-                      <div className="flex flex-wrap gap-8 pt-4">
+                      </motion.div>
+                      <motion.div initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.8, delay: 1 }} className="flex flex-wrap gap-8 pt-4">
                         {stats.map((stat, index) => (
                           <div key={index}>
                             <div className="text-3xl font-display font-bold text-green-700  bg-clip-text ">
@@ -184,15 +209,15 @@ const Home = () => {
                             <div className="text-sm text-muted-foreground">{stat.label}</div>
                           </div>
                         ))}
-                      </div>
+                      </motion.div>
                     </div>
 
 
 
                   </div>
                 </div>
-              </section>
-            </div>
+              </motion.section>
+            </motion.div>
 
 
           </SwiperSlide>
@@ -206,41 +231,79 @@ const Home = () => {
       <section className="py-20 px-4">
         <div className="container mx-auto">
           <div className="text-center mb-16 space-y-4">
-            <h2 className="text-4xl md:text-5xl font-display font-bold">
-              Why Choose <span className="text-green-700 bg-clip-text ">SernixSoft</span>
-            </h2>
-            <p className="text-sx text-muted-foreground max-w-2xl mx-auto">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-4xl md:text-5xl font-display font-bold"
+            >
+              Why Choose <span className="text-green-700 bg-clip-text ">SarNixSoft</span>
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-sx text-muted-foreground max-w-2xl mx-auto"
+            >
               We combine technical expertise with creative passion to deliver exceptional results
-            </p>
+            </motion.p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+          <motion.div
+            className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={{
+              hidden: {},
+              visible: {
+                transition: {
+                  staggerChildren: 0.2,
+                },
+              },
+            }}
+          >
             {features.map((feature, index) => (
-              <Card
+              <motion.div
                 key={index}
-                className="p-8 bg-card border-border hover:shadow-elevated transition-smooth hover:-translate-y-2 group"
+                variants={{
+                  hidden: { opacity: 0, y: 30 },
+                  visible: { opacity: 1, y: 0 },
+                }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
               >
-                <div className="w-14 h-14 gradient-primary rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-bounce">
-                  <feature.icon className="w-7 h-7 text-white" />
-                </div>
-                <h3 className="text-sx font-display font-semibold mb-3">{feature.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
-              </Card>
+                <Card className="p-8 bg-card border-border hover:shadow-elevated transition-smooth hover:-translate-y-2 group">
+                  <div className="w-14 h-14 gradient-primary rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-bounce">
+                    <feature.icon className="w-7 h-7 text-white" />
+                  </div>
+                  <h3 className="text-sx font-display font-semibold mb-3">{feature.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
+                </Card>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
       {/* Our Plans Section */}
       <section className="py-20 px-4 bg-gray-50">
         <div className="container mx-auto">
-          <div className="text-center mb-16 space-y-4">
+          {/* Section Heading */}
+          <motion.div
+            className="text-center mb-16 space-y-4"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8 }}
+          >
             <h2 className="text-4xl md:text-5xl font-display font-bold">
               Choose the Right <span className="text-green-700 bg-clip-text">Plan</span>
             </h2>
             <p className="text-sx text-muted-foreground max-w-2xl mx-auto">
               Select a plan that fits your business needs. From small websites to full-scale web applications, we've got you covered.
             </p>
-          </div>
+          </motion.div>
 
+          {/* Swiper Plans */}
           <Swiper
             modules={[Navigation, Pagination]}
             spaceBetween={20}
@@ -256,17 +319,24 @@ const Home = () => {
           >
             {plans.map((plan, index) => (
               <SwiperSlide key={index}>
-                <Card className="p-8 bg-card border-border hover:shadow-elevated transition-smooth hover:-translate-y-2 group">
-                  <div className="w-14 h-14 gradient-primary rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-bounce">
-                    <plan.icon className="w-7 h-7 text-white" />
-                  </div>
-                  <h3 className="text-sx font-display font-semibold mb-3">{plan.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed mb-4">{plan.description}</p>
-                  <p className="text-lg font-bold">{plan.price}</p>
-                  <button className="mt-4 px-6 py-2 bg-green-700 text-white rounded-lg hover:bg-green-800 transition">
-                    Choose Plan
-                  </button>
-                </Card>
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.6 }}
+                >
+                  <Card className="p-8 bg-card border-border hover:shadow-elevated transition-smooth hover:-translate-y-2 group">
+                    <div className="w-14 h-14 gradient-primary rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-bounce">
+                      <plan.icon className="w-7 h-7 text-white" />
+                    </div>
+                    <h3 className="text-sx font-display font-semibold mb-3">{plan.title}</h3>
+                    <p className="text-muted-foreground leading-relaxed mb-4">{plan.description}</p>
+                    <p className="text-lg font-bold">{plan.price}</p>
+                    <button className="mt-4 px-6 py-2 bg-green-700 text-white rounded-lg hover:bg-green-800 transition">
+                      Choose Plan
+                    </button>
+                  </Card>
+                </motion.div>
               </SwiperSlide>
             ))}
           </Swiper>
@@ -274,88 +344,168 @@ const Home = () => {
       </section>
 
 
+
       {/* Mission Statement */}
+
+
       <Swiper
         modules={[Navigation, Autoplay, Pagination]}
         spaceBetween={0}
         slidesPerView={1}
         pagination={{ clickable: true }}
-        // navigation
-        autoplay={{
-          delay: 300000,       // 3 seconds
-          disableOnInteraction: false,
-        }}
+        autoplay={{ delay: 3000, disableOnInteraction: false }}
         loop={true}
       >
         {images.map((imgUrl, idx) => (
           <SwiperSlide key={idx} className="relative">
-            <img src={imgUrl} alt={`slide-${idx}`} className="w-full h-[529px] object-cover" />
+            <img
+              src={imgUrl}
+              alt={`slide-${idx}`}
+              className="w-full h-[529px] object-cover transition-transform duration-1000 ease-out hover:scale-105"
+            />
+
             {/* Gradient overlay */}
             <div
               className="absolute top-0 left-0 w-full h-full"
               style={{
-                background: "linear-gradient(to right, rgba(0,2,0,2) 0%, rgba(0,0,0,0) 100%)",
+                background: "linear-gradient(to right, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%)",
+                transition: "all 1.5s ease-in-out",
               }}
             ></div>
-            <div className="absolute inset-0 flex flex-col items-center justify-center z-20 text-white space-y-2">
 
-
-              <section className="py-20 px-4">
+            <div className="absolute inset-0 flex flex-col items-center justify-center z-20 text-white">
+              <motion.section
+                className="py-20 px-4"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.5 }}
+                variants={{
+                  hidden: { opacity: 0, y: 50 },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: { staggerChildren: 0.2, duration: 0.8 },
+                  },
+                }}
+              >
                 <div className="container mx-auto max-w-4xl text-center space-y-8">
-                  <Users className="w-16 h-16 mx-auto text-primary" />
-                  <h2 className="text-3xl md:text-4xl font-display font-bold">Our Mission</h2>
-                  <p className="text-sx text-muted-foreground text-white leading-relaxed">
-                    To empower businesses with beautiful, functional digital solutions built on trust, creativity, and technical excellence. We believe great software comes from passionate developers who care deeply about their craft and their clients.
-                  </p>
-                  <div className="flex justify-center gap-3 pt-4">
-                    <div className="px-6 py-3  bg-accent/20 text-accent rounded-full text-sm font-medium">
-                      Honesty First
-                    </div>
-                    <div className="px-6 py-3  bg-accent/20 text-accent rounded-full text-sm font-medium">
-                      Quality Driven
-                    </div>
-                    <div className="px-6 py-3 bg-accent/20 text-accent rounded-full text-sm font-medium">
-                      Client Focused
-                    </div>
-                  </div>
+                  <motion.div
+                    className="mx-auto flex justify-center"
+                    initial={{ scale: 0, opacity: 0 }}
+                    whileInView={{ scale: 1, opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                  >
+                    <Users className="w-16 h-16 text-primary" />
+                  </motion.div>
+
+                  <motion.h2
+                    className="text-3xl md:text-4xl font-display font-bold"
+                    initial={{ y: 20, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8, delay: 0.4 }}
+                  >
+                    Our Mission
+                  </motion.h2>
+
+                  <motion.p
+                    className="text-sx text-white leading-relaxed"
+                    initial={{ y: 20, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8, delay: 0.6 }}
+                  >
+                    To empower businesses with beautiful, functional digital solutions built on trust,
+                    creativity, and technical excellence. We believe great software comes from passionate
+                    developers who care deeply about their craft and their clients.
+                  </motion.p>
+
+                  <motion.div
+                    className="flex justify-center gap-3 pt-4 flex-wrap"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8, delay: 0.8 }}
+                  >
+                    {["Honesty First", "Quality Driven", "Client Focused"].map((badge, i) => (
+                      <motion.div
+                        key={i}
+                        className="px-6 py-3 bg-accent/20 text-accent rounded-full text-sm font-medium"
+                        initial={{ y: 20, opacity: 0 }}
+                        whileInView={{ y: 0, opacity: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, delay: 0.9 + i * 0.2 }}
+                      >
+                        {badge}
+                      </motion.div>
+                    ))}
+                  </motion.div>
                 </div>
-              </section>
-
-
+              </motion.section>
             </div>
-
-
           </SwiperSlide>
         ))}
       </Swiper>
 
+
       {/* Testimonials */}
       <section className="py-20 px-4">
         <div className="container mx-auto">
-          <div className="text-center mb-16 space-y-4">
+          {/* Section Header */}
+          <motion.div
+            className="text-center mb-16 space-y-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
             <h2 className="text-4xl md:text-5xl font-display font-bold">
               Loved by <span className="text-green-700 bg-clip-text ">Our Clients</span>
             </h2>
             <p className="text-sx text-muted-foreground max-w-2xl mx-auto">
               Don't just take our word for it - here's what our clients say
             </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6">
+          </motion.div>
+
+          {/* Testimonials Grid */}
+          <motion.div
+            className="grid md:grid-cols-3 gap-6"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={{
+              hidden: {},
+              visible: {
+                transition: {
+                  staggerChildren: 0.2, // animate cards one by one
+                },
+              },
+            }}
+          >
             {testimonials.map((testimonial, index) => (
-              <Card key={index} className="p-8 bg-card border-border hover:shadow-soft transition-smooth">
-                <div className="flex gap-1 mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-secondary fill-secondary" />
-                  ))}
-                </div>
-                <p className="text-muted-foreground mb-6 leading-relaxed">{testimonial.content}</p>
-                <div>
-                  <div className="font-display font-semibold">{testimonial.name}</div>
-                  <div className="text-sm text-muted-foreground">{testimonial.role}</div>
-                </div>
-              </Card>
+              <motion.div
+                key={index}
+                variants={{
+                  hidden: { opacity: 0, y: 30 },
+                  visible: { opacity: 1, y: 0 },
+                }}
+                transition={{ duration: 0.6 }}
+              >
+                <Card className="p-8 bg-card border-border hover:shadow-soft transition-smooth">
+                  <div className="flex gap-1 mb-4">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star key={i} className="w-5 h-5 text-secondary fill-secondary" />
+                    ))}
+                  </div>
+                  <p className="text-muted-foreground mb-6 leading-relaxed">{testimonial.content}</p>
+                  <div>
+                    <div className="font-display font-semibold">{testimonial.name}</div>
+                    <div className="text-sm text-muted-foreground">{testimonial.role}</div>
+                  </div>
+                </Card>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -363,15 +513,43 @@ const Home = () => {
       <section className="py-20 px-4">
         <div className="container mx-auto">
           <Card className="relative overflow-hidden gradient-hero p-12 md:p-16 text-center text-white border-0">
+            {/* Background overlay */}
             <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent" />
-            <div className="relative space-y-6 max-w-3xl mx-auto">
-              <h2 className="text-4xl md:text-5xl font-display font-bold">
+
+            <motion.div
+              className="relative space-y-6 max-w-3xl mx-auto"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={{
+                hidden: {},
+                visible: { transition: { staggerChildren: 0.2 } },
+              }}
+            >
+              {/* Heading */}
+              <motion.h2
+                variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+                transition={{ duration: 0.8 }}
+                className="text-4xl md:text-5xl font-display font-bold"
+              >
                 Ready to Build Something Amazing?
-              </h2>
-              <p className="text-sx text-white/90 leading-relaxed">
+              </motion.h2>
+
+              {/* Paragraph */}
+              <motion.p
+                variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="text-sx text-white/90 leading-relaxed"
+              >
                 Let's turn your vision into a beautiful reality. Get in touch and let's create magic together.
-              </p>
-              <div className="flex flex-wrap justify-center gap-4 pt-4">
+              </motion.p>
+
+              {/* Buttons */}
+              <motion.div
+                variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="flex flex-wrap justify-center gap-4 pt-4"
+              >
                 <NavLink to="/contact">
                   <Button size="lg" variant="secondary" className="bg-white text-primary hover:bg-white/90">
                     Get Started Now
@@ -383,11 +561,12 @@ const Home = () => {
                     View Portfolio
                   </Button>
                 </NavLink>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </Card>
         </div>
       </section>
+
 
       <Footer />
     </div>

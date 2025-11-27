@@ -12,6 +12,9 @@ import Signup from "./pages/Signup";
 import ForgotPassword from "./pages/ForgotPassword";
 import Dashboard from "./pages/Dashboard";
 import NotFound from "./pages/NotFound";
+import FloatingPhoneIcon from "./components/floatIcon/floatingPhone";
+import ScrollToTop from "./components/scrooltop/scroolTop";
+
 
 const queryClient = new QueryClient();
 
@@ -33,9 +36,12 @@ const App = () => (
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <FloatingPhoneIcon />
+        <ScrollToTop />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
+
 );
 
 export default App;
